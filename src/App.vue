@@ -3,7 +3,9 @@
 </script>
 
 <template>
-    <router-view />
+    <v-container fluid className="ma-16 pa-16">
+        <router-view />
+    </v-container>
 </template>
 
 

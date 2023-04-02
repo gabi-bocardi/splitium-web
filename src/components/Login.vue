@@ -1,12 +1,12 @@
 <template>
     <v-form @submit.prevent>
         <v-text-field
-            v-model="username"
+            v-model="userLogin.username"
             label="Username"
             required
         ></v-text-field>
         <v-text-field
-            v-model="password"
+            v-model="userLogin.password"
             label="Password"
             type="password"
             required
@@ -19,17 +19,26 @@
 </template>
 
 <script lang="ts">
+import Login from '../services/LoginService';
 export default {
     name: 'Login',
     data() {
         return {
-            username: '',
-            password: ''
+            userLogin: {
+                username: '',
+                password: ''
+            }
         }
     },
     methods: {
         login() {
-            console.log('login')
+            Login(this.userLogin)
+                .then(() => {
+                    this.$router.push('/home')
+                })
+                .catch(() => {
+                    this.$router.push('/login')
+                })
         }
     }
 }
