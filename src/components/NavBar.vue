@@ -1,7 +1,13 @@
 <template>
-    <v-app-bar :elevation="2" >
-        <img :src="logo" justify="center"/>
-        <v-app-bar-title>Splitium</v-app-bar-title>
+    <v-app-bar :elevation="2">
+        <v-container className="w-100 d-flex align-center justify-space-between pr-5">
+            <v-button>
+                <router-link to="/home">
+                    <img :src="logo" justify="center"/>
+                </router-link>
+            </v-button>
+            <v-icon icon="mdi-logout" size="x-large" />
+        </v-container>
     </v-app-bar>
 
 </template>
