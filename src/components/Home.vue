@@ -1,5 +1,5 @@
 <template>
-    <Card/>
+    <Card :group="{name: 'Test Group', balance: 5}"/>
 </template>
 
 <script lang="ts">

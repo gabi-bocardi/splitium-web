@@ -1,7 +1,10 @@
-type IUser = {
+export interface IUser {
     name: string;
     username: string;
     password: string;
 }
 
-export default  IUser;
+export interface IGroup {
+    name: string;
+    balance: number;
+}
