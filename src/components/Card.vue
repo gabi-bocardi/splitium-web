@@ -26,9 +26,5 @@ export default {
             }
         }
     },
-    mounted(){
-        // this.avatarColor = randomColor();
-        // this.avatarText =  `${group.name.split('')[0] + group.name.split('')[1]}`;
-    },
 }
 </script>
