@@ -1,5 +1,5 @@
 <template>
-    <v-sheet className="d-flex justify-space-evenly align-center elevation-3 py-7 rounded-lg">
+    <v-sheet className="d-flex justify-space-evenly align-center elevation-3 py-7 rounded-lg" :onclick="GoToGroupPage">
         <v-avatar :color="avatarColor" size="x-large" variant="elevated">
             <span class="text-h5">{{ avatarText }}</span>
         </v-avatar>
@@ -35,6 +35,11 @@ export default {
                 name: this.group.name,
                 balance: this.group.balance,
             }
+        }
+    },
+    methods: {
+        GoToGroupPage(){
+            this.$router.push({ name: 'Group', params: {  } });
         }
     },
     computed: {

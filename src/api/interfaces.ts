@@ -7,4 +7,9 @@ export interface IUser {
 export interface IGroup {
     name: string;
     balance: number;
+    members: IMember[];
+}
+
+export interface IMember {
+    
 }

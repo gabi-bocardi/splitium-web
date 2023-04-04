@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import Login from '../services/LoginService';
+import { Login } from '../services/LoginService';
 export default {
     name: 'Login',
     data() {
