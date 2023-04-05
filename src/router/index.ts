@@ -7,12 +7,12 @@ import Group from '../components/Group.vue';
 const routes = [
     {
         path: '/',
-        name: 'login',
+        name: 'Login',
         component: Login
     },
     {
         path: '/home',
-        name: 'home',
+        name: 'Home',
         component: Home
     },
     {

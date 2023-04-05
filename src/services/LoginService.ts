@@ -4,6 +4,11 @@ import type {IUser} from '../api/interfaces';
 
 type IUserLogin = Omit<IUser, "name">;
 
-export function Login(data:IUserLogin){
-        return http.post('/login', data);
+class LoginService{
+
+        login(data: IUserLogin){
+                return http.post('/login', data);
+        }
 }
+
+export default new LoginService();

@@ -4,7 +4,7 @@
             <span class="text-h5">{{ avatarText }}</span>
         </v-avatar>
         <p class="text-h4">{{group.name}}</p>
-        <p :class="balanceClass">{{group.balance.toFixed(2)}}</p>
+        <!-- <p :class="balanceClass">{{group.total.toFixed(2)}}</p> -->
     </v-sheet>
 
 </template>
@@ -16,7 +16,7 @@ import type { PropType } from 'vue'
 
 
 export default {
-    name: 'Card',
+    name: 'GroupCard',
     props: {
         group: {
             type: Object as PropType<IGroup>,

@@ -16,10 +16,11 @@
             @click="login"
         >Login</v-btn>
     </v-form>
+    <p class="text-h5 red-darken-3" v-if="errorMessage"> {{ errorMessage }}</p>
 </template>
 
 <script lang="ts">
-import { Login } from '../services/LoginService';
+import LoginService from '../services/LoginService';
 export default {
     name: 'Login',
     data() {
@@ -27,19 +28,25 @@ export default {
             userLogin: {
                 username: '',
                 password: ''
-            }
+            },
+            errorMessage: '',
         }
     },
     methods: {
-        login() {
-            Login(this.userLogin)
-                .then(() => {
-                    this.$router.push('/home')
-                })
-                .catch(() => {
-                    this.$router.push('/login')
-                })
+        login(){
+            LoginService.login(this.userLogin)
+            .then((response) => {
+                let user = response.data;
+                localStorage.setItem('user_id', user.id);
+                this.$router.push({name: 'Home'});
+            })
+            .catch((error) => {
+                console.log(error);
+                this.errorMessage = error.response.data.message;
+            })
         }
+       
     }
 }
+
 </script>

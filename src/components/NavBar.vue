@@ -6,7 +6,7 @@
                     <img :src="logo" justify="center"/>
                 </router-link>
             </v-button>
-            <v-icon icon="mdi-logout" size="x-large" />
+            <v-icon icon="mdi-logout" size="x-large" @click="logout" />
         </v-container>
     </v-app-bar>
 
@@ -20,6 +20,12 @@ export default {
     data(){
         return {
             logo: Logo
+        }
+    }, 
+    methods: {
+        logout(){
+            localStorage.removeItem('user_id');
+            this.$router.push({name: 'Login'});
         }
     }
 }
