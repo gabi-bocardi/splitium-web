@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import Card from './Card.vue';
+import Card from './GroupCard.vue';
 
 export default {
     name: 'home',
