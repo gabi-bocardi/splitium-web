@@ -16,7 +16,7 @@ const routes = [
         component: Home
     },
     {
-        path: '/group',
+        path: '/group/:id',
         name: 'Group',
         component: Group
     }

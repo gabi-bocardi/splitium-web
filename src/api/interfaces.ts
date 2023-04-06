@@ -5,11 +5,21 @@ export interface IUser {
 }
 
 export interface IGroup {
+    id: number;
     name: string;
-    balance: number;
-    members: IMember[];
+    description: string;
+    total: number;
+    groupMember: IGroupMember[];
+    payments: IPayment[];
 }
 
-export interface IMember {
-    
+export interface IGroupMember {
+    amount: number;
+    id: number;
+    User: IUser;
+}
+export interface IPayment {
+    userId: string;
+    amount: number;
+    user: IUser;
 }

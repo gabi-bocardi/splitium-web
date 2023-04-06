@@ -1,6 +1,6 @@
 <template>
     
-    <v-list v-if="userGroups.length" variant="elevated">
+    <v-list v-if="userGroups.length">
        <GroupCard v-for="(group, index) in userGroups" :key="index" :group="group"/>
     </v-list>
 </template>
@@ -44,7 +44,7 @@ export default {
     mounted(){
         this.retrieveUser();
         this.retrieveUserGroups();
-    }
+    },
 }
 
 </script>

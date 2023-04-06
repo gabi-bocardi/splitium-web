@@ -8,6 +8,10 @@ class UserService{
     getUserGroups(userId: string){
         return http.get(`/users/${userId}/groups`);
     }
+
+    getGroup(groupId: string){
+        return http.get(`/groups/${groupId}`);
+    }
 }
 
 export default new UserService();
