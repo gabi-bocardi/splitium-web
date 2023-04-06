@@ -33,7 +33,6 @@ export default {
                 .join('')
                 .substring(0, 2),
             balance: 0,
-            group: {},
         }
     },
     methods: {
