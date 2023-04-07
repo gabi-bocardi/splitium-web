@@ -2,7 +2,7 @@ import http from '../api/http-common';
 import type {IUser} from '../api/interfaces';
 
 
-type IUserLogin = Omit<IUser, "name">;
+type IUserLogin = Omit<IUser, "name" | "id">;
 
 class LoginService{
 

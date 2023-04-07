@@ -1,4 +1,5 @@
 export interface IUser {
+    id: number;
     name: string;
     username: string;
     password: string;
@@ -16,7 +17,7 @@ export interface IGroup {
 export interface IGroupMember {
     amount: number;
     id: number;
-    User: IUser;
+    user: IUser;
 }
 export interface IPayment {
     userId: string;
