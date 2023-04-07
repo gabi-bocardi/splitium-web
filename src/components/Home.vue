@@ -1,13 +1,15 @@
 <template>
     
-    <v-list v-if="userGroups.length">
+    <v-container v-if="userGroups.length" class="d-flex flex-column align-center w-100">
+        <h1 class="text-h2  align-center" >Welcome {{ user.name }}!</h1>
        <GroupCard v-for="(group, index) in userGroups" :key="index" :group="group"/>
-    </v-list>
+    </v-container>
 </template>
 
 <script lang="ts">
 import GroupCard from './GroupCard.vue';
 import UserService from '../services/UserService';
+import type { IGroup, IUser } from '@/api/interfaces';
 
 export default {
     name: 'Home',
@@ -16,8 +18,8 @@ export default {
     }, 
     data() {
         return{
-            user: {},
-            userGroups: [],
+            user: {} as IUser,
+            userGroups: [] as IGroup[],
         }
     },
     methods: {

@@ -1,5 +1,5 @@
 <template>
-    <v-sheet className="d-flex justify-space-evenly align-center elevation-3 py-7 rounded-lg mt-10" :onclick="GoToGroupPage">
+    <v-sheet className="d-flex justify-space-evenly align-center elevation-3 py-7 rounded-lg mt-10 w-100" :onclick="GoToGroupPage">
         <v-avatar :color="avatarColor" size="x-large" variant="elevated">
             <span class="text-h5">{{ avatarText }}</span>
         </v-avatar>
