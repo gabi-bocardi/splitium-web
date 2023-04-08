@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         GoToGroupPage(){
-            this.$router.push({ name: 'Group', params: { id: this.group.id } });
+            this.$router.push({ name: 'GroupPage', params: { id: this.group.id } });
         },
         
     },

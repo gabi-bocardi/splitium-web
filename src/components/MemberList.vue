@@ -4,8 +4,7 @@
         <v-list lines="two" className="'elevated'">
             <v-list-item
             v-for="member in group.groupMember"
-            className="my-8 d-flex justify-space-between align-center"
-            minWidth="300"
+            className="my-4 d-flex justify-space-between align-center"
             :key="member.id"
             @click="openDialog(member)"
             >

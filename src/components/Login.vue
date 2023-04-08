@@ -16,7 +16,7 @@
             @click="login"
         >Login</v-btn>
     </v-form>
-    <p class="text-h5 red-darken-3" v-if="errorMessage"> {{ errorMessage }}</p>
+    <p class="text-h5 text-red-darken-3" v-if="errorMessage"> {{ errorMessage }}</p>
 </template>
 
 <script lang="ts">

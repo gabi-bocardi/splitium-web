@@ -1,7 +1,7 @@
 <template>
     <div v-if="group">
         <GroupDescription :group="group" :balance="balance" />
-        <v-container className="d-flex justify-space-evenly">
+        <v-container className="d-flex mt-10 gap">
             <MemberList :group="group"/>
             <PaymentsList :group="group"/>
         </v-container>
@@ -76,11 +76,8 @@ export default {
     },
 }
 </script>
-<style>
+<style scoped>
     .gap{
         gap: 15px;
-    }
-    .list-item{
-        font-size: 1.5rem;
     }
 </style>
