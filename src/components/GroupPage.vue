@@ -2,45 +2,8 @@
     <div v-if="group">
         <GroupDescription :group="group" :balance="balance" />
         <v-container className="d-flex justify-space-evenly">
-            <v-sheet className="elevation-3 py-7 rounded-lg d-flex flex-column justify-space-evenly align-center elevation flex-grow-1">
-                <p class="text-h4"> Members</p>
-                <v-list lines="two" className="'elevated'">
-                    <v-list-item
-                    v-for="member in group.groupMember"
-                    :key="member.id"
-                    className="my-8 d-flex justify-space-between align-center"
-                    minWidth="300"
-                    >
-                        <template v-slot:prepend>
-                            <v-avatar :color="randomColor()" size="x-large">
-                                <span class="text-h5">{{ avatarText(member.user.name) }}</span>
-                             </v-avatar>
-                        </template>
-                        <v-list-item-title class="text-h6">
-                            {{member.user.name}}
-                        </v-list-item-title>
-                        <v-list-item-subtitle>
-                            This member owns ${{computeMemberBalance(member, group.payments).toFixed(2)}} of ${{ member.amount.toFixed(2) }}
-                        </v-list-item-subtitle>
-                    </v-list-item>
-                </v-list>    
-            </v-sheet>
-
-            <v-sheet className="elevation-3 py-7 rounded-lg d-flex flex-column justify-space-evenly align-center elevation flex-grow-1">
-                <p class="text-h4"> Payments</p>
-                <v-list lines="two" v-if="group.payments.length > 0" className="elevated">
-                    <v-list-item
-                    v-for="payment in group.payments"
-                    :key="payment.userId"
-                >
-                    <v-list-item-title class="text-h6">
-                        From {{payment.user.name}} of ${{payment.amount.toFixed(2)}}
-                    </v-list-item-title>
-                </v-list-item>
-                </v-list>    
-                <p v-else> No payments made yet</p>
-            </v-sheet>
-
+            <MemberList :group="group"/>
+            <PaymentsList :group="group"/>
         </v-container>
     </div>
 
@@ -54,13 +17,17 @@ import {computeGroupBalance, computeMemberBalance} from '@/utils/calculator';
 import GroupService from '@/services/GroupService';
 import type { IGroup } from '@/api/interfaces';
 import GroupDescription from './GroupDescription.vue';
+import MemberList from './MemberList.vue';
+import PaymentsList from './PaymentsList.vue';
 
 
 export default {
     name: "GroupPage",
     components: {
-        GroupDescription,
-    },
+    GroupDescription,
+    MemberList,
+    PaymentsList,
+},
     data() {
         return {
             group: undefined as IGroup | undefined,
