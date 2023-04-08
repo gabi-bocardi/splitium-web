@@ -2,8 +2,8 @@
     <v-card >
         <v-card-text>
             <v-container>
-                <p class="text-h4">Are you sure you want to delete {{member?.user.name}}?</p>
-                <v-btn type="submit" @click="handleDelete">Delete Member</v-btn>
+                <p class="text-h4">Are you sure you want to delete {{group?.name}}?</p>
+                <v-btn type="submit" @click="handleDelete">Delete Group</v-btn>
             </v-container>
         </v-card-text>
     </v-card>
@@ -14,47 +14,47 @@
         <v-card variant="elevated">
             <v-container>
                 <v-card-text className="text-h4" color="white"> 
-                    Member Deleted Successfully
+                    Group Deleted Successfully
                     <v-icon icon="mdi-check-circle" size="80px" color="primary" />
                 </v-card-text>
             </v-container>
         </v-card>
     </v-dialog>
 </template>
-
 <script lang="ts">
-import type { IGroupMember } from '@/api/interfaces';
-import type { PropType } from 'vue';
+import type { IGroup } from '@/api/interfaces';
 import GroupService from '@/services/GroupService';
+import type { PropType } from 'vue';
+
 
 export default {
-    name: 'DeleteMemberForm',
+    name: "DeleteGroupModal",
     data(){
-        return {
-            memberToDelete: '',
-            onSuccess: false
+        return{
+            onSuccess: false,
         }
     },
-    props:{
-        member: {
-            type: Object as PropType<IGroupMember>,
-        }
+    props: {
+        group: {
+            type: Object as PropType<IGroup>,
+            required: true,
+        } 
     },
     methods: {
         handleDelete(){
-            if(this.member == null) return;
-            GroupService.deleteMember(this.member!.id)
-            .then(() => {
+            if(!this.group?.id) return;
+            GroupService.deleteGroup(this.group!.id)
+            .then((response) => {
                 this.onSuccess = true;
                 setTimeout(() => {
                     this.onSuccess = false;
-                    this.$router.go(0);
+                    this.$router.push({name: "Home"});
                 }, 2000);
             })
-            .catch((err) => {
-                console.log(err);
+            .catch((error) => {
+                console.log(error)
             })
-        }
+        }, 
     }
 }
 </script>

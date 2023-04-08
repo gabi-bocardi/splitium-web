@@ -21,7 +21,16 @@
                     <v-list-item-title className="text-h6">Add Payment</v-list-item-title>
                 </v-list-item>
                 <v-list-item>
-                    <v-list-item-title className="text-h6">Delete Group</v-list-item-title>
+                    <v-dialog
+                        v-model="deleteGroupDialog"
+                        activator="parent"
+                        width="auto"
+                        >
+                            <template v-slot:activator="{props}">
+                                <v-list-item-title className="text-h6">Delete Group</v-list-item-title>
+                            </template>
+                            <DeleteGroupModal :group="group" />
+                        </v-dialog>
                 </v-list-item>
             </v-list>
         </v-menu>
@@ -31,6 +40,7 @@
 import type { IGroup } from '@/api/interfaces';
 import type { PropType } from 'vue';
 import AddMemberForm from './AddMemberForm.vue';
+import DeleteGroupModal from './DeleteGroupModal.vue';
 import DeleteMemberForm from './DeleteMemberForm.vue';
 
 
@@ -42,14 +52,16 @@ export default{
             required: true
         },
     },
-    components: { 
-        AddMemberForm,
-        DeleteMemberForm,
-     },
+    components: {
+    AddMemberForm,
+    DeleteMemberForm,
+    DeleteGroupModal,
+},
     data() {
         return {
             deleteFormDialog: false,
             addFormDialog: false,
+            deleteGroupDialog: false,
         };
     },
     methods: {

@@ -20,7 +20,10 @@ class GroupService{
     deleteMember(memberId: number){
         return http.delete(`/member/${memberId}`);
     }
-       
+    
+    deleteGroup(groupId: number){
+        return http.delete(`/groups/${groupId}`);
+    }
 }
 
 export default new GroupService();
