@@ -5,20 +5,23 @@
                 <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
             </template>
             <v-list min-width="200">
-                <v-dialog
-                    v-model="addFormDialog"
-                    activator="parent"
-                    width="auto"
-                    >
-                    <template v-slot:activator="{props}">
-                        <v-list-item>
-                            <v-list-item-title className="text-h6" @click="setShowMemberForm">Add Member</v-list-item-title>
-                        </v-list-item>
-                    </template>
-                    <AddMemberForm :group="group"/>
-                </v-dialog>
                 <v-list-item>
-                    <v-list-item-title className="text-h6">Delete</v-list-item-title>
+                    <v-dialog
+                        v-model="addFormDialog"
+                        activator="parent"
+                        width="auto"
+                        >
+                        <template v-slot:activator="{props}">
+                                <v-list-item-title className="text-h6">Add Member</v-list-item-title>
+                        </template>
+                            <AddMemberForm :group="group"/>
+                        </v-dialog>
+                </v-list-item>
+                <v-list-item>
+                    <v-list-item-title className="text-h6">Add Payment</v-list-item-title>
+                </v-list-item>
+                <v-list-item>
+                    <v-list-item-title className="text-h6">Delete Group</v-list-item-title>
                 </v-list-item>
             </v-list>
         </v-menu>
@@ -28,6 +31,8 @@
 import type { IGroup } from '@/api/interfaces';
 import type { PropType } from 'vue';
 import AddMemberForm from './AddMemberForm.vue';
+import DeleteMemberForm from './DeleteMemberForm.vue';
+
 
 export default{
     name: "GroupMenu",
@@ -39,22 +44,15 @@ export default{
     },
     components: { 
         AddMemberForm,
+        DeleteMemberForm,
      },
     data() {
         return {
-            showMemberForm: false,
+            deleteFormDialog: false,
             addFormDialog: false,
         };
     },
     methods: {
-        setShowMemberForm() {
-            if (this.showMemberForm) {
-                this.showMemberForm = false;
-            }
-            else {
-                this.showMemberForm = true;
-            }
-        },
     },
 }
 </script>

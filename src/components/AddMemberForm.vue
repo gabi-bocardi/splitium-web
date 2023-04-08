@@ -1,5 +1,18 @@
-<template>
-        <v-card >
+<template v-slot:default="{ isActive }">
+    <v-card >
+            <v-dialog
+            v-model="onSuccess"
+            width="auto"
+            >
+                <v-card variant="elevated">
+                    <v-container>
+                        <v-card-text className="text-h4" color="white"> 
+                            Member Added Successfully
+                            <v-icon icon="mdi-check-circle" size="80px" color="primary" />
+                        </v-card-text>
+                    </v-container>
+                </v-card>
+            </v-dialog>
             <v-card-text>
                 <v-form>
                     <v-checkbox
@@ -44,6 +57,7 @@
             <v-card-actions>
             </v-card-actions>
         </v-card>
+
 </template>
 <script lang="ts">
 import type { IGroup } from '@/api/interfaces';
@@ -62,6 +76,7 @@ export default {
             name: "",
             username: "",
             amount: 0,
+            onSuccess: false,
         };
     },
     props: {
@@ -84,6 +99,11 @@ export default {
                     GroupService.addMember(this.group, newMember )
                     .then((response) => {
                         console.log(response);
+                        this.onSuccess = true;
+                        setTimeout(() => {
+                            this.onSuccess = false;
+                            this.$router.go(0);
+                        }, 2000);
                     })
                     .catch((error) => {
                         console.log(error);
@@ -108,6 +128,11 @@ export default {
                     GroupService.addMember(this.group, newMember )
                     .then((response) => {
                         console.log(response);
+                        this.onSuccess = true;
+                        setTimeout(() => {
+                            this.onSuccess = false;
+                            this.$router.go(0);
+                        }, 2000);
                     })
                     .catch((error) => {
                         console.log(error);

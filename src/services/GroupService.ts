@@ -8,16 +8,17 @@ class GroupService{
 
     addMember(group: IGroup, newMember: {user: IUser, amount: number}){
         const member = {
-            user: newMember.user,
-            group,
-            amount: newMember.amount,
+            groupId: group.id,
+            name: newMember.user.name,
+            balance: newMember.amount,
+            username: newMember.user.username,
         }
 
         return http.post("/member", member);   
     }
     
-    deleteMember(groupId: number, memberId: number){
-        return http.delete(`/group/${groupId}/member/${memberId}`);
+    deleteMember(memberId: number){
+        return http.delete(`/member/${memberId}`);
     }
        
 }
