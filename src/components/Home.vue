@@ -1,8 +1,8 @@
 <template>
-    
-    <v-container v-if="userGroups.length" class="d-flex flex-column align-center w-100">
+    <v-container v-if="user" class="d-flex flex-column align-center w-100">
         <h1 class="text-h2  align-center" >Welcome {{ user.name }}!</h1>
        <GroupCard v-for="(group, index) in userGroups" :key="index" :group="group"/>
+       <p v-if="!userGroups.length" class="text-h4 mt-10"> You have no groups yet.</p>
     </v-container>
 </template>
 

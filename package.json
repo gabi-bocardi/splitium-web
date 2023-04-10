@@ -18,7 +18,7 @@
     "randomcolor": "^0.6.2",
     "vue-router": "^4.1.6",
     "vuetify": "^3.1.12"
-  },
+},
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "^18.14.2",

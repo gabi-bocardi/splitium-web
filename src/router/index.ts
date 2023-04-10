@@ -3,7 +3,7 @@ import Login from '../components/Login.vue';
 import Home from '../components/Home.vue';
 import GroupPage from '../components/GroupPage.vue';
 import NewGroupPage from '../components/NewGroupPage.vue';
-
+import RegistrationPage from '../components/RegistrationPage.vue';
 
 
 const routes = [
@@ -23,9 +23,14 @@ const routes = [
         component: GroupPage
     },
     {
-        path: '/newGroup',
+        path: '/newgroup',
         name: 'NewGroupPage',
         component: NewGroupPage
+    },
+    {
+        path: '/registration',
+        name: 'RegistrationPage',
+        component: RegistrationPage
     }
 
 ]

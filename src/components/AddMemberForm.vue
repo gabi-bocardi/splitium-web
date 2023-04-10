@@ -33,7 +33,7 @@
                         />
                         <v-text-field
                             v-model="amount"
-                            label="How much the own you?"
+                            label="How much they own you?"
                             required
                         />
                     </v-container>

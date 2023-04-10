@@ -17,6 +17,10 @@
         >Login</v-btn>
     </v-form>
     <p class="text-h5 text-red-darken-3" v-if="errorMessage"> {{ errorMessage }}</p>
+
+    <p class="text-h6 mt-10"> Not a user yet? 
+        <router-link to='/registration'> Sign in!</router-link> 
+    </p>
 </template>
 
 <script lang="ts">
